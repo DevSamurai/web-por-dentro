@@ -1,0 +1,16 @@
+{
+  "name": "03-html-bd",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "pg-promise": "^11.5.5",
+    "sucrase": "^3.35.0"
+  }
+}

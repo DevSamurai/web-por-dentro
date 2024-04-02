@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Lista de clientes</h1>
+  <ul id="customers"></ul>
+  <p>Horário da consulta: <time id="time"></time></p>
+</body>
+<script>
+  const el = document.getElementById('time');
+  const now = new Date();
+  el.textContent = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+
+  const fetchData = async () => {
+    const response = await fetch("http://localhost:3000/customers");
+    const data = await response.json();
+
+    const ul = document.getElementById('customers');
+
+    data.customers.forEach(customer => {
+      const li = document.createElement('li');
+      li.textContent = customer.nome;
+      ul.appendChild(li);
+    });
+  }
+
+  fetchData();
+</script>
+</html>
